@@ -26,7 +26,11 @@ export default createStore({
   actions: {
     async cargarJuegos({ commit }) {
       try {
-        let response = await fetch("/juegos.json");
+        let domain = location.origin
+        let projectName = "/desafio-uno-vuex/"
+        let url = `${domain}${projectName}juegos.json`
+        
+        let response = await fetch(url);
         let juegos = await response.json();
         /* let juegos = data */
         console.log(juegos)
